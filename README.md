@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # StickyNotesApp
 
 To start your Phoenix server:
@@ -18,3 +19,7 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+=======
+# sticky-notes-app
+This app has the behavior and similar to Trello
+>>>>>>> 1ec4cd64484f39f740a315795f44f38fe7c22bd5
