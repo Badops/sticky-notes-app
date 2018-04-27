@@ -1,312 +1,40 @@
-
-<!-- # resizable div
-https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_resize
-https://jqueryui.com/resizable/
-
-# draggable
-https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_global_draggable
-https://stackoverflow.com/questions/13526712/make-div-draggable-using-css
-
-# cards
-https://www.w3schools.com/bootstrap4/bootstrap_cards.asp
-
-# draggable cards
-https://www.bootply.com/dUQiGMggWO
-
-# sticky notes
-https://codepen.io/edmondko/pen/udcHG
-http://jsfiddle.net/rsobers/a9eFX/150/
-
-#-----------------------------------------------------------------
-# sticky notes - resize
-http://jsfiddle.net/a9eFX/1440/
-
-html:
-<link href='http://fonts.googleapis.com/css?family=Reenie+Beanie&subset=latin' rel='stylesheet' type='text/css'>
-
-
 <ul id="notes">
-
-    <li>
-       <p>Push new feature to Kiln for code review</p>
-    </li>
-    <li class="kiln">
-        <p>Browse hacker news for a bit</p>
-    </li>
     <li>
         <p>Read JavaScript: The Good Parts by Douglas Crockford</p>
-    </li>    
+    </li>
+
 </ul>
 
-css:
+<!-- # dragable using jqueryUI
 
-body {
-    background: #B2CCCC;
-}
-
-#notes li {
-    position: relative;
-    width: 300px;
-    min-height: 100px;
-    margin: 25px auto;
-    padding: 60px 15px 15px 15px;
-    background: #fff url(http://our.fogbugz.com/images/tbKiwiLogo.gif) no-repeat 4px 8px;
-    -webkit-box-shadow: 0 2px 12px rgba(0,0,0,.5);
-    -moz-box-shadow: 0 2px 12px rgba(0,0,0,.5);
-    box-shadow: 0 1px 2px #000;
-    -webkit-transform: rotate(-.5deg); 
-    -moz-transform: rotate(-.5deg); 
-    -o-transform: rotate(-.5deg);     
-}
-
-#notes li:nth-child(even) {
-    -webkit-transform: rotate(.5deg); 
-    -moz-transform: rotate(.5deg); 
-    -o-transform: rotate(.5deg);     
-}
-
-#notes li.kiln
-{
-    background-image: url(https://rob.kilnhg.com/Content/Images/kiln_focus.gif);
-}
-
-#notes li p {
-    text-align: center;
-    font: normal normal normal 40px/48px 'Reenie Beanie', Helvetica, Arial, sans-serif;
-    color: #000;
-    text-shadow: white 1px 1px 0px;
-    overflow:hidden;
-}
-
-#notes li::before {
-    content: ' ';
-    display: block;
-    position: absolute; 
-    left: 115px;
-    top: -15px;
-    width: 75px;
-    height: 25px;
-    z-index: 2;
-    background-color: rgba(243,245,228,0.5);
-    border: 2px solid rgba(255,255,255,0.5);
-    -webkit-box-shadow: 0 0 5px #888;
-    -moz-box-shadow: 0 0 5px #888;
-    box-shadow: 2px 2px 2px #000;
-    -webkit-transform: rotate(-6deg); 
-    -moz-transform: rotate(-6deg); 
-    -o-transform: rotate(-6deg); 
-}
-
-#notes li:nth-child(even)::before {
-    -webkit-transform: rotate(6deg); 
-    -moz-transform: rotate(6deg); 
-    -o-transform: rotate(6deg);
-}
-
-li {
-    border: 2px solid;
-    padding: 20px; 
-    width: 300px;
-    resize: both;
-    overflow: auto;
-}
-
-#-----------------------------------------------------------------
-
-# dragable using jqueryUI
-
-#---------------
-# html
-#---------------
-
-<head>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  
-  <script>
-  $( function() {
-    $( "#draggable" ).draggable();
-  } );
-  </script>
-  
-</head>
-
-<link href='http://fonts.googleapis.com/css?family=Reenie+Beanie&subset=latin' rel='stylesheet' type='text/css'>
+-->
 
 
 
 <ul id="notes">
 
   <div id="draggable" class="ui-widget-content">
-  <li class="kiln"> 
-    <p>Push new feature to Kiln for code review</p>
-    </li>
-</div>
+  	<li class="kiln"> 
+    	<p>Push new feature to Kiln for code review</p>
+  	</li>
+	</div>
 
 </ul>
-
-#---------------
-# css
-#---------------
-
-body {
-    background: #B2CCCC;
-}
-
-#notes li {
-    position: relative;
-    width: 300px;
-    min-height: 100px;
-    margin: 25px auto;
-    padding: 60px 15px 15px 15px;
-    background: #fff url(http://our.fogbugz.com/images/tbKiwiLogo.gif) no-repeat 4px 8px;
-    -webkit-box-shadow: 0 2px 12px rgba(0,0,0,.5);
-    -moz-box-shadow: 0 2px 12px rgba(0,0,0,.5);
-    box-shadow: 0 1px 2px #000;
-    -webkit-transform: rotate(-.5deg); 
-    -moz-transform: rotate(-.5deg); 
-    -o-transform: rotate(-.5deg);     
-}
-
-#notes li:nth-child(even) {
-    -webkit-transform: rotate(.5deg); 
-    -moz-transform: rotate(.5deg); 
-    -o-transform: rotate(.5deg);     
-}
-
-#notes li.kiln
-{
-    background-image: url(https://rob.kilnhg.com/Content/Images/kiln_focus.gif);
-}
-
-#notes li p {
-    text-align: center;
-    font: normal normal normal 40px/48px 'Reenie Beanie', Helvetica, Arial, sans-serif;
-    color: #000;
-    text-shadow: white 1px 1px 0px;
-    overflow:hidden;
-}
-
-#notes li::before {
-    content: ' ';
-    display: block;
-    position: absolute; 
-    left: 115px;
-    top: -15px;
-    width: 75px;
-    height: 25px;
-    z-index: 2;
-    background-color: rgba(243,245,228,0.5);
-    border: 2px solid rgba(255,255,255,0.5);
-    -webkit-box-shadow: 0 0 5px #888;
-    -moz-box-shadow: 0 0 5px #888;
-    box-shadow: 2px 2px 2px #000;
-    -webkit-transform: rotate(-6deg); 
-    -moz-transform: rotate(-6deg); 
-    -o-transform: rotate(-6deg); 
-}
-
-#notes li:nth-child(even)::before {
-    -webkit-transform: rotate(6deg); 
-    -moz-transform: rotate(6deg); 
-    -o-transform: rotate(6deg);
-}
-
-li {
-    border: 2px solid;
-    padding: 20px; 
-    width: 300px;
-    resize: both;
-    overflow: auto;
-}
-
-#draggable { width: 150px; height: 150px; padding: 0.5em; }
-  
-#-----------------------------------------------------
-
-# draggable and resizable
-http://jsfiddle.net/cse_tushar/qkKV6/
-
-#---------------
-# html
-#---------------
-
-
-<head>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js"></script>
-<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
-
-
-  <SCRIPT>
-$(function(){
-	$('#draggable')
-		.draggable()
-		.resizable();
-});
-</SCRIPT>
-  
-</head>
-
-<link href='http://fonts.googleapis.com/css?family=Reenie+Beanie&subset=latin' rel='stylesheet' type='text/css'>
-
 
 
 <ul id="notes">
 
   <div id="draggable" class="ui-widget-content kiln">
-  <li class="kiln"> 
-   test
-</li>
-</div>
-    
+  	<li class="kiln">test</li>
+	</div>
+
 </ul>
 
-#-------------
+<!--
+################
 # css
-#-------------
-
-body {
-    background: #B2CCCC;
-}
-
-
-#notes li {
-    position: relative;
-    width: 300px;
-    min-height: 100px;
-    margin: 25px auto;
-    padding: 60px 15px 15px 15px;
-    background: #fff url(http://our.fogbugz.com/images/tbKiwiLogo.gif) no-repeat 4px 8px;
-    -webkit-box-shadow: 0 2px 12px rgba(0,0,0,.5);
-    -moz-box-shadow: 0 2px 12px rgba(0,0,0,.5);
-    box-shadow: 0 1px 2px #000;
-    -webkit-transform: rotate(-.5deg); 
-    -moz-transform: rotate(-.5deg); 
-    -o-transform: rotate(-.5deg);     
-}
-
-#notes li:nth-child(even) {
-    -webkit-transform: rotate(.5deg); 
-    -moz-transform: rotate(.5deg); 
-    -o-transform: rotate(.5deg);     
-}
-
-#notes li.kiln
-{
-    background-image: url(https://rob.kilnhg.com/Content/Images/kiln_focus.gif);
-}
-
-#notes li p {
-    text-align: center;
-    font: normal normal normal 40px/48px 'Reenie Beanie', Helvetica, Arial, sans-serif;
-    color: #000;
-    text-shadow: white 1px 1px 0px;
-    overflow:hidden;
-}
-
-#notes li::before {
-    content: ' ';
+#################
+.   content: ' ';
     display: block;
     position: absolute; 
     left: 115px;
@@ -323,19 +51,12 @@ body {
     -moz-transform: rotate(-6deg); 
     -o-transform: rotate(-6deg); 
 }
+-->
 
-#notes li:nth-child(even)::before {
-    -webkit-transform: rotate(6deg); 
-    -moz-transform: rotate(6deg); 
-    -o-transform: rotate(6deg);
-}
 
-#draggable {    width: 300px;
-    min-height: 100px;
-    margin: 25px auto;
-    padding: 60px 15px 15px 15px;}
-	
-#-------------------------------------------
+
+<!--	
+#######################################33
 
 # add resizable columns, edditable table
 
@@ -367,6 +88,6 @@ https://codepen.io/ashblue/pen/mCtuA
 
 http://mindmup.github.io/editable-table/
 
-
 -->
+
 

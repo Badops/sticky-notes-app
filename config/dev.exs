@@ -56,3 +56,14 @@ config :sticky_notes_app, StickyNotesApp.Repo,
   database: "sticky_notes_app_dev",
   hostname: "localhost",
   pool_size: 10
+
+# Enable live reloads on Drab pages
+config :sticky_notes_app, MyApp.Endpoint,
+  live_reload: [
+    patterns: [
+      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
+      ~r{priv/gettext/.*(po)$},
+      ~r{web/views/.*(ex)$},
+      ~r{web/templates/.*(eex|drab)$}
+    ]
+  ]
