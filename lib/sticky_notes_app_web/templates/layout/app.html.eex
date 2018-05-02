@@ -9,23 +9,39 @@
 
     <title>Hello StickyNotesApp!</title>
     
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-    <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie&subset=latin' rel='stylesheet' type='text/css'>
-  	<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
-  
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-	  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>"> -->
+    <style>
 
-    <script>
-      $( function() {
-        $( "#draggable" )
-          .draggable()
-          .resizable();
-      });
-    </script>
-  
+* {
+  font-family: 'Segoe UI';
+}
+li {
+  list-style: none;
+  padding: 5px;
+  background: #f5f5f5;
+  border-radius: 5px;
+  margin: 0 0 5px;
+}
+ul {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 30%;
+  margin: 0 0.5%;
+  display: inline-block;
+  vertical-align: top;
+}
+ul.over {
+  padding-bottom: 55px;
+  background: url('http://www.cufonfonts.com/makeImage.php?width=650&id=1026&size=35&d=y&text=Drop%20Here') center bottom no-repeat #ccc;
+}
+ul.over li {
+  background: #fff;
+}
+
+#board div h3 {display: inline-block; width: 30%; margin: 1%; text-align: center;}
+
+</style>
   </head>
 
   <body>
@@ -39,5 +55,35 @@
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
     <%= Drab.Client.run(@conn) %>
+    <script>
+      $(document).ready(function(){
+        $('li').bind('dragstart', function(event) {
+          event.originalEvent.dataTransfer.setData("text/plain",  event.target.getAttribute('id'));
+        });
+
+        $('ul').bind('dragover', function(event) {
+          event.preventDefault();
+        });
+
+        $('ul').bind('dragenter', function(event) {
+          $(this).addClass("over");
+        });
+
+        $('ul').bind('dragleave drop', function(event) {
+          $(this).removeClass("over");
+        });
+
+        $('li').bind('drop', function(event) {
+          return false;
+        });
+
+        $('ul').bind('drop', function(event) {
+          var listitem = event.originalEvent.dataTransfer.getData("text/plain");
+          event.target.appendChild(document.getElementById(listitem));
+          event.preventDefault();
+        });
+      });
+
+    </script>
   </body>
 </html>
