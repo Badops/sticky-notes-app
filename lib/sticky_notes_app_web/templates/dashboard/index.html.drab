@@ -3,5 +3,6 @@
 </div>
 
 <div id = save-button>
+    <p> Click here to save notes </p>
     <button drab="click:save">Save notes</button>
 </div
