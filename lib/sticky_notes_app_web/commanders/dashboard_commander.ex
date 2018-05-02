@@ -17,6 +17,7 @@ defmodule StickyNotesAppWeb.DashboardCommander do
     socket
     |> insert_html("#container", :afterbegin, column)
 
+    # executes the following raw javascript code
     socket
     |> exec_js("
       $(document).ready(function(){
@@ -49,16 +50,17 @@ defmodule StickyNotesAppWeb.DashboardCommander do
       )
   end
 
+  # Event handlers
   defhandler save(socket, _sender) do
     username = get_store(socket, :user)
-
     %{"container" => html_string} = socket
       |> select(:htmls, [from: "#container"])
 
     process_html_string(html_string)
-    |> DashboardController.update_content(username)
+      |> DashboardController.update_content(username)
   end
 
+  # Private functions
   defp process_html_string(html_string) do
     raw_html = html_string
         |> String.trim()
